@@ -5,23 +5,23 @@
 ### Development mode
 
 ```sh
-python3 -m python_baseline
+python3 -m python_fastapi_baseline
 
 # OR
 
-python3 -m python_baseline --no-prod
+python3 -m python_fastapi_baseline --no-prod
 ```
 
 ### Production mode
 
 ```sh
-python3 -m python_baseline --prod
+python3 -m python_fastapi_baseline --prod
 ```
 
 ### Help
 
 ```sh
-python3 -m python_baseline --help
+python3 -m python_fastapi_baseline --help
 ```
 
 ## API docs
