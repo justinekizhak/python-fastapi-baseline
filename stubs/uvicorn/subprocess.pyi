@@ -1,0 +1,6 @@
+from typing import Any
+
+spawn: Any
+
+def get_subprocess(config: Any, target: Any, sockets: Any): ...
+def subprocess_started(config: Any, target: Any, sockets: Any, stdin_fileno: Any) -> None: ...
