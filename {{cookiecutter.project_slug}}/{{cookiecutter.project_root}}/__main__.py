@@ -4,8 +4,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
 
-from python_fastapi_baseline.api import api_v1
-from python_fastapi_baseline.core.config import settings, set_env
+from {{cookiecutter.project_root}}.api import api_v1
+from {{cookiecutter.project_root}}.core.config import settings, set_env
 
 from dotenv import load_dotenv
 
@@ -54,7 +54,7 @@ def load_environment(prod: bool = False):
 def main(prod: bool = False):
     load_environment(prod)
     uvicorn.run(
-        "python_fastapi_baseline.__main__:app",
+        "{{cookiecutter.project_root}}.__main__:app",
         host=settings.SERVER_HOST,
         port=settings.SERVER_PORT,
         reload=settings.SERVER_RELOAD,

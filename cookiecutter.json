@@ -1,0 +1,9 @@
+{
+    "project_name": "Python FastAPI Template",
+    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "project_root": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
+    "description": "Python FastAPI template",
+    "author_name": "John Doe",
+    "author_email": "john@doe.com",
+    "license": ""
+}
