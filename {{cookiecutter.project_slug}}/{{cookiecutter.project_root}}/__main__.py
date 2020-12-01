@@ -41,14 +41,15 @@ def redirect_to_api():
 
 def load_environment(prod: bool = False):
     set_env("PRODUCTION_ENV", str(prod))
+    load_dotenv()
     if prod:
         logger.info("Running in production mode...")
-        load_dotenv(".env.production.local", override=True)
         load_dotenv(".env.production", override=True)
+        load_dotenv(".env.production.local", override=True)
     else:
         logger.info("Running in development mode...")
-        load_dotenv(".env.development.local", override=True)
         load_dotenv(".env.development", override=True)
+        load_dotenv(".env.development.local", override=True)
 
 
 def main(prod: bool = False):
