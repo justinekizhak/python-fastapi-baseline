@@ -101,3 +101,9 @@ mypy
 ```sh
 tox -e check
 ```
+
+## Installing Pre commit hook
+
+```sh
+pre-commit install
+```
