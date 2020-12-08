@@ -1,5 +1,39 @@
 # {{cookiecutter.project_name}}
 
+## Install dependencies
+
+```sh
+poetry install
+```
+
+## Poetry
+
+### To install all packages
+
+```sh
+poetry install
+```
+
+### To add new package
+
+```sh
+poetry add <package-name> # or poetry add --dev <package-name>
+```
+
+### To go into poetry shell
+
+```sh
+poetry shell
+```
+
+### To get help
+
+```sh
+poetry --help
+```
+
+Poetry Docs: https://python-poetry.org/
+
 ## Run project
 
 ### Development mode
