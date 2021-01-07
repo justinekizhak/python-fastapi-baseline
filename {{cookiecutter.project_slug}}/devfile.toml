@@ -1,0 +1,15 @@
+version = "v1"
+
+[[modules]]
+commands = [
+  "docker build -t {image_name} .",
+  "docker run -d --name {container_name} -p 80:80 {image_name}",
+  "python -m webbrowser http://localhost",
+]
+constants = [
+  {key = "image_name", value = "{{cookiecutter.project_root}}_image"},
+  {key = "container_name", value = "{{cookiecutter.project_root}}_container"},
+]
+description = "Build and deploy the docker container with production settings"
+module_type = "phony"
+name = "deploy"
