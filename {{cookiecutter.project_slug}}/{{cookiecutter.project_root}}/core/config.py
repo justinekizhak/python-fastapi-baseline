@@ -1,9 +1,9 @@
-from pydantic import BaseSettings, AnyHttpUrl, validator
+from pydantic import BaseModel, AnyHttpUrl, validator
 from typing import List, Union
 import os
 
 
-class Settings(BaseSettings):
+class GlobalConfig(BaseModel):
     PRODUCTION_ENV: bool = False
     PROJECT_NAME: str = "Python Baseline"
     DEBUG: bool = True
@@ -28,23 +28,28 @@ class Settings(BaseSettings):
             return v
         raise ValueError(v)
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-
-
-def post_init_settings():
+def get_settings():
     def check_debug():
         if settings.PRODUCTION_ENV:
             return False
         return True
 
+    config = {**os.environ, **dotenv_values(".env")}
+
+    dev_env = [".env.development", ".env.local", ".env.development.local"]
+    prod_env = [".env.production", ".env.local", ".env.production.local"]
+
+    is_prod_env = config.get("PRODUCTION_ENV", "False") == "True"
+
+    for i in prod_env if is_prod_env else dev_env:
+        config = {**config, **dotenv_values(i)}
+
+    settings = Settings(**config)
     settings.DEBUG = check_debug()
     settings.SERVER_RELOAD = check_debug()
+    return settings
 
-
-settings = Settings()
-post_init_settings()
+settings = get_settings()
 
 
 def set_env(key: str, value: str):

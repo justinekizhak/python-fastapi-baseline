@@ -39,21 +39,7 @@ def redirect_to_api():
     return RedirectResponse(settings.API_DOC, status_code=301)
 
 
-def load_environment(prod: bool = False):
-    set_env("PRODUCTION_ENV", str(prod))
-    load_dotenv()
-    if prod:
-        logger.info("Running in production mode...")
-        load_dotenv(".env.production", override=True)
-        load_dotenv(".env.production.local", override=True)
-    else:
-        logger.info("Running in development mode...")
-        load_dotenv(".env.development", override=True)
-        load_dotenv(".env.development.local", override=True)
-
-
-def main(prod: bool = False):
-    load_environment(prod)
+def main():
     uvicorn.run(
         "{{cookiecutter.project_root}}.__main__:app",
         host=settings.SERVER_HOST,

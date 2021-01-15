@@ -1,15 +1,27 @@
-version = "v1"
+author = "{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>"
+description = "All the commands required for building and deploying the application"
 
 [[modules]]
-commands = [
-  "docker build -t {image_name} .",
-  "docker run -d --name {container_name} -p 80:80 {image_name}",
-  "python -m webbrowser http://localhost",
-]
-constants = [
-  {key = "image_name", value = "{{cookiecutter.project_root}}_image"},
-  {key = "container_name", value = "{{cookiecutter.project_root}}_container"},
-]
-description = "Build and deploy the docker container with production settings"
-module_type = "phony"
+module_type = "group"
 name = "deploy"
+requires = ["build and run", "open browser"]
+
+[[modules]]
+commands = ["python -m webbrowser http://localhost"]
+description = "Open the browser with the url."
+module_type = "phony"
+name = "open browser"
+
+[[modules]]
+commands = ["docker build -t {image_name} .", "docker run -d --name {container_name} -p 80:80 {image_name}"]
+constants = [{key = "container_name", value = "project_aquaz_container"}, {key = "image_name", value = "project_aquaz_image"}]
+description = "Build and deploy the docker container with production settings.\n\nFor full documentation on the docker settings check the URL."
+module_type = "phony"
+name = "build and run"
+url = "https://github.com/tiangolo/uvicorn-gunicorn-docker"
+
+[[modules]]
+commands = ["python3 -m {{cookiecutter.project_root}}"]
+description = "Run the application in development mode"
+module_type = "phony"
+name = "dev"
