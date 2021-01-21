@@ -4,18 +4,16 @@ Created using [Cookiecutter](https://cookiecutter.readthedocs.io/).
 
 ## Usage
 
-1. Install cookiecutter
+1. Install pipx
 
-Installing cookiecutter using `pipx` is preferred.
+```sh
+pip install pipx
+```
 
 Know more about [pipx](https://github.com/pipxproject/pipx).
 
-```sh
-pipx install cookiecutter # pip install cookiecutter
-```
-
-2. Use the template
+2. Run
 
 ```sh
-cookiecutter gh:justinekizhak/python-fastapi-template
+pipx run cookiecutter gh:justinekizhak/python-fastapi-template
 ```
