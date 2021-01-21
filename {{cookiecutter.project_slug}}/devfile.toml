@@ -2,8 +2,14 @@ author = "{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>"
 description = "All the commands required for building and deploying the application"
 
 [[modules]]
+commands = ["python3 -m {{cookiecutter.project_root}}"]
+description = "Run the application in development mode"
+module_type = "phony"
+name = "dev"
+
+[[modules]]
 module_type = "group"
-name = "deploy"
+name = "prod"
 requires = ["build and run", "open browser"]
 
 [[modules]]
@@ -19,9 +25,3 @@ description = "Build and deploy the docker container with production settings.\n
 module_type = "phony"
 name = "build and run"
 url = "https://github.com/tiangolo/uvicorn-gunicorn-docker"
-
-[[modules]]
-commands = ["python3 -m {{cookiecutter.project_root}}"]
-description = "Run the application in development mode"
-module_type = "phony"
-name = "dev"

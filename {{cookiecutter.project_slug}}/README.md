@@ -40,20 +40,22 @@ Poetry Docs: https://python-poetry.org/
 
 ## Run project
 
+Install pipx for better dev experience
+
 ### Development mode
 
 ```sh
-python3 -m {{cookiecutter.project_root}}
+pipx run ddot run -m dev
 
 # OR
 
-python3 -m {{cookiecutter.project_root}} --no-prod
+python3 -m {{cookiecutter.project_root}}
 ```
 
 ### Production mode
 
 ```sh
-python3 -m {{cookiecutter.project_root}} --prod
+pipx run ddot run -m prod
 ```
 
 ### Help

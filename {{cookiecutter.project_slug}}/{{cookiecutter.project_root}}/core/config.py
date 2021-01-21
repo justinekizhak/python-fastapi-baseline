@@ -1,9 +1,10 @@
 from pydantic import BaseModel, AnyHttpUrl, validator
 from typing import List, Union
 import os
+import dotenv import dotenv_values
 
 
-class GlobalConfig(BaseModel):
+class Settings(BaseModel):
     PRODUCTION_ENV: bool = False
     PROJECT_NAME: str = "Python Baseline"
     DEBUG: bool = True
