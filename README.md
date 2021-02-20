@@ -4,6 +4,20 @@ Created using [Cookiecutter](https://cookiecutter.readthedocs.io/).
 
 ## Usage
 
+### I have Cookiecutter already installed
+
+```sh
+cookiecutter gh:justinekizhak/python-fastapi-template
+```
+
+### I don't have Cookiecutter and I don't want to keep it after I have used it
+
+In this case we will be using pipx.
+
+TLDR;
+
+Pipx is a great tool and you should probably use it anyways
+
 1. Install pipx
 
 ```sh
@@ -17,3 +31,17 @@ Know more about [pipx](https://github.com/pipxproject/pipx).
 ```sh
 pipx run cookiecutter gh:justinekizhak/python-fastapi-template
 ```
+
+### I don't mind Cookiecutter being installed
+
+1. Install cookiecutter
+
+TLDR;
+
+```sh
+pipx install cookiecutter
+```
+
+Probably best to refer the cookiecutter docs.
+
+2. Follow these instructions [I have Cookiecutter already installed](#i-have-cookiecutter-already-installed)
